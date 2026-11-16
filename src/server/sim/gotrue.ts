@@ -1,7 +1,7 @@
 /**
  * Simulador local da API do Supabase Auth (GoTrue) — SOMENTE modo de teste.
- * Implementa os mesmos endpoints usados em produção: /otp, /verify, /user, /token, /logout.
- * O código de uso único vai para a caixa de entrada de teste (tabela sim_emails).
+ * Implementa os endpoints usados em produção: /token (pkce e refresh_token), /user e /logout.
+ * O "Google" é a tela /teste/google, que gera o código de autorização ligado ao code_challenge.
  */
 import crypto from "node:crypto";
 import { db } from "../db";
@@ -34,31 +34,13 @@ export async function simGoTrue(pathname: string, init: RequestInit): Promise<Re
   const auth = new Headers(init.headers).get("authorization")?.replace(/^Bearer\s+/i, "") ?? "";
   const [p, query] = pathname.split("?");
 
-  if (p === "/otp") {
-    const email = String(body.email ?? "").trim().toLowerCase();
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return json({ msg: "E-mail inválido" }, 400);
-    await sql`insert into sim_auth_usuarios (id, email) values (${crypto.randomUUID()}, ${email}) on conflict (email) do nothing`;
-    const code = String(crypto.randomInt(0, 1_000_000)).padStart(6, "0");
-    await sql`
-      insert into sim_auth_codigos (email, codigo_hash, expira_em, tentativas)
-      values (${email}, ${sha(code)}, ${new Date(Date.now() + 10 * 60_000)}, 0)
-      on conflict (email) do update set codigo_hash = excluded.codigo_hash, expira_em = excluded.expira_em, tentativas = 0`;
-    await sql`insert into sim_emails (para, assunto, corpo) values (${email}, 'Seu código de acesso ao DoraLivre',
-      ${`Use o código ${code} para entrar no DoraLivre. Ele vale por 10 minutos.`})`;
-    return json({});
-  }
-
-  if (p === "/verify") {
-    const email = String(body.email ?? "").trim().toLowerCase();
-    const token = String(body.token ?? "").trim();
-    const [c] = await sql`select * from sim_auth_codigos where email = ${email}`;
-    if (!c || new Date(c.expira_em) < new Date() || c.tentativas >= 5) return json({ msg: "Código expirado ou inválido" }, 403);
-    if (c.codigo_hash !== sha(token)) {
-      await sql`update sim_auth_codigos set tentativas = tentativas + 1 where email = ${email}`;
-      return json({ msg: "Código expirado ou inválido" }, 403);
-    }
-    await sql`delete from sim_auth_codigos where email = ${email}`;
-    const [u] = await sql`select id, email from sim_auth_usuarios where email = ${email}`;
+  if (p === "/token" && query?.includes("grant_type=pkce")) {
+    const code = String(body.auth_code ?? "");
+    const verifier = String(body.code_verifier ?? "");
+    const [c] = await sql`delete from sim_auth_pkce where codigo = ${code} and expira_em > now() returning user_id, desafio`;
+    const challenge = crypto.createHash("sha256").update(verifier).digest("base64url");
+    if (!c || c.desafio !== challenge) return json({ msg: "invalid flow state, no valid flow state found" }, 400);
+    const [u] = await sql`select id, email from sim_auth_usuarios where id = ${c.user_id}`;
     return json(await issueTokens(u.id, u.email));
   }
 
@@ -84,4 +66,17 @@ export async function simGoTrue(pathname: string, init: RequestInit): Promise<Re
   }
 
   return json({ msg: "not found" }, 404);
+}
+
+/** Tela de teste do "Google": cria/acha o usuário e devolve um código de autorização PKCE. */
+export async function simGoogleAuthorize(email: string, challenge: string) {
+  const sql = await db();
+  const e = email.trim().toLowerCase();
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)) throw new Error("E-mail inválido");
+  if (!/^[A-Za-z0-9_-]{43}$/.test(challenge)) throw new Error("code_challenge inválido");
+  await sql`insert into sim_auth_usuarios (id, email) values (${crypto.randomUUID()}, ${e}) on conflict (email) do nothing`;
+  const [u] = await sql`select id from sim_auth_usuarios where email = ${e}`;
+  const codigo = crypto.randomUUID();
+  await sql`insert into sim_auth_pkce (codigo, user_id, desafio, expira_em) values (${codigo}, ${u.id}, ${challenge}, ${new Date(Date.now() + 5 * 60_000)})`;
+  return codigo;
 }

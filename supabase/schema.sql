@@ -141,6 +141,12 @@ create table if not exists sim_auth_tokens (
   expira_em timestamptz not null,
   revogado boolean not null default false
 );
+create table if not exists sim_auth_pkce (
+  codigo text primary key,
+  user_id uuid not null,
+  desafio text not null,
+  expira_em timestamptz not null
+);
 create table if not exists sim_emails (
   id bigserial primary key,
   para text not null,
@@ -177,6 +183,7 @@ alter table avisos enable row level security;
 alter table sim_auth_usuarios enable row level security;
 alter table sim_auth_codigos enable row level security;
 alter table sim_auth_tokens enable row level security;
+alter table sim_auth_pkce enable row level security;
 alter table sim_emails enable row level security;
 alter table sim_mp_preferencias enable row level security;
 alter table sim_mp_pagamentos enable row level security;

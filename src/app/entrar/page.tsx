@@ -1,21 +1,23 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import LoginForm from "@/components/LoginForm";
+import GoogleButton from "@/components/GoogleButton";
 import LogoutButton from "@/components/LogoutButton";
 import PageShell from "@/components/PageShell";
 import { brl, PRODUTOS } from "@/lib/products";
 import { orderById } from "@/server/billing";
-import { modes } from "@/server/config";
 import { pageSession } from "@/server/page-session";
+import { safeVolta } from "@/server/volta";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "Entrar — DoraLivre" };
 
 const PLANO_NOME = { nenhum: "Nenhum plano ativo", basico: "DoraLivre Básico", premium: "DoraLivre Premium" } as const;
 
-function safeVolta(v: string | undefined, fallback: string) {
-  return v && v.startsWith("/") && !v.startsWith("//") ? v : fallback;
-}
+const ERROS: Record<string, string> = {
+  cancelado: "O login com Google foi cancelado. Tente de novo quando quiser.",
+  sessao: "O login expirou ou foi aberto em outro navegador. Clique em Entrar com Google novamente.",
+  google: "Não foi possível concluir o login com Google. Tente de novo.",
+};
 
 /**
  * URL de entrega (/entrar). Quem abrir o link entra com o PRÓPRIO e-mail e vê o plano da PRÓPRIA conta.
@@ -46,11 +48,22 @@ export default async function EntrarPage({ searchParams }: { searchParams: Promi
           <h1>{pedidoId ? "Entre para acessar sua compra" : "Entrar no DoraLivre"}</h1>
           <p className="lead">
             {pedidoId
-              ? "Use o e-mail da conta que fez a compra. O plano é liberado na conta autenticada, não no link."
-              : "Acesse favoritos, episódios assistidos e a sua maratona em qualquer dispositivo."}
+              ? "Entre com a conta Google usada na compra. O plano é liberado na conta autenticada, não no link."
+              : "Use sua conta Google para salvar favoritos, episódios assistidos e a sua maratona em qualquer dispositivo."}
           </p>
           {sp.sessao === "expirada" && <p className="nudge">Sua sessão expirou. Entre novamente.</p>}
-          <LoginForm volta={safeVolta(sp.volta, aqui)} teste={modes().auth === "simulado"} />
+          {sp.erro && ERROS[sp.erro] && (
+            <p className="nudge nudge-error" role="alert">
+              {ERROS[sp.erro]}
+            </p>
+          )}
+          <div className="auth-google">
+            <GoogleButton volta={safeVolta(sp.volta, aqui)} />
+            <p className="fineprint">
+              Sem senha nova: usamos só o nome e o e-mail da sua conta Google para identificar sua conta no DoraLivre. A
+              conta é criada no primeiro acesso.
+            </p>
+          </div>
         </div>
       </PageShell>
     );
@@ -68,10 +81,10 @@ export default async function EntrarPage({ searchParams }: { searchParams: Promi
           <div className="status-box status-warn" role="alert" data-testid="pedido-outra-conta">
             <strong>Este link de compra não pertence a esta conta.</strong>
             <p>
-              O plano é liberado somente na conta que fez o pagamento. Se a compra foi sua, saia e entre com o e-mail
-              usado nela. Abaixo está o plano da conta conectada agora.
+              O plano é liberado somente na conta que fez o pagamento. Se a compra foi sua, saia e entre com a conta
+              Google usada nela. Abaixo está o plano da conta conectada agora.
             </p>
-            <LogoutButton label="Sair e entrar com outro e-mail" volta={aqui} />
+            <LogoutButton label="Sair e entrar com outra conta Google" volta={aqui} />
           </div>
         )}
 

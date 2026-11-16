@@ -62,7 +62,7 @@ O catálogo e o player continuam **públicos**. As compras (pagamento único) li
 Páginas: `/planos` (vendas), `/entrar` (login e **URL de entrega**), `/conta` (Minha conta), `/minha-maratona` (Premium).
 
 **Como funciona**
-- Login: Supabase Auth com código de uso único por e-mail (API REST do GoTrue, `src/server/auth.ts`). Tokens em cookies httpOnly e validados no servidor a cada requisição.
+- Login: botão **Entrar com Google** pelo Supabase Auth (OAuth com PKCE, feito no servidor em `src/server/auth.ts`, rotas `/api/auth/google` e `/api/auth/callback`). Tokens em cookies httpOnly e validados no servidor a cada requisição.
 - Pedido: `POST /api/checkout` exige sessão e cria o pedido com o ID da conta **antes** de abrir o checkout. Produto e valor são decididos no servidor (`src/lib/products.ts`, `offerFor` em `src/server/billing.ts`).
 - Checkout: Mercado Pago Checkout Pro, com `external_reference` = ID do pedido.
 - Webhook `POST /api/webhooks/mercadopago`:
@@ -87,22 +87,27 @@ npm run dev     # ou: npm run build && DORALIVRE_MODO_TESTE=1 npm start
 ```
 
 No modo de teste, login e Mercado Pago são **simulados pelo mesmo código de produção**:
-- o código de login aparece em `/teste/caixa-de-entrada`;
+- o botão "Entrar com Google" abre `/teste/google`, que simula a escolha da conta Google;
 - o checkout simulado envia webhooks assinados;
 - `/teste/pagamentos` aprova pendentes, reembolsa, contesta e reenvia webhooks.
 
 Testes: `node tests/planos.e2e.cjs parte1` e, depois de adicionar um episódio ao catálogo e reiniciar, `node tests/planos.e2e.cjs parte2`.
 
-### Ativar cobrança real
-1. **Supabase**: crie o projeto e configure:
-   - Auth → Providers → Email ativo.
-   - Auth → Email Templates → *Magic Link* com `{{ .Token }}` no corpo, para enviar o **código**.
-   - SMTP próprio (o envio padrão tem limite baixo).
-2. **Banco**: use a connection string do pooler em `DATABASE_URL`. O esquema (`supabase/schema.sql`, com RLS ligado em todas as tabelas) é aplicado automaticamente na primeira requisição. Também pode ser rodado no SQL Editor.
-3. **Mercado Pago**: crie a aplicação (Checkout Pro) e use as credenciais de produção em `MP_ACCESS_TOKEN`. Em *Webhooks*:
+### Ativar o login com Google e a cobrança real
+1. **Google Cloud** (console.cloud.google.com):
+   - *APIs e serviços → Tela de permissão OAuth* (ou *Google Auth Platform*): público **Externo**, nome do app, e-mail de suporte; escopos `openid`, `email` e `profile`; publique o app.
+   - *APIs e serviços → Credenciais → Criar credenciais → ID do cliente OAuth*, tipo **Aplicativo da Web**:
+     - Origens JavaScript autorizadas: `https://dora-livre.vercel.app`
+     - URIs de redirecionamento autorizados: `https://<ref-do-projeto>.supabase.co/auth/v1/callback`
+   - Copie o **ID do cliente** e a **chave secreta do cliente**.
+2. **Supabase** (projeto doralivre):
+   - *Authentication → Sign In / Providers → Google*: ative e cole o ID e a chave secreta do cliente.
+   - *Authentication → URL Configuration*: *Site URL* `https://dora-livre.vercel.app` e, em *Redirect URLs*, `https://dora-livre.vercel.app/api/auth/callback`.
+3. **Banco**: `DATABASE_URL` com a connection string do pooler. O esquema (`supabase/schema.sql`, com RLS ligado em todas as tabelas) é aplicado automaticamente na primeira requisição.
+4. **Mercado Pago**: crie a aplicação (Checkout Pro) e use as credenciais em `MP_ACCESS_TOKEN`. Em *Webhooks*:
    - cadastre `https://dora-livre.vercel.app/api/webhooks/mercadopago` com o evento **Pagamentos**;
    - copie a assinatura secreta para `MP_WEBHOOK_SECRET`.
-4. **Vercel**:
+5. **Vercel**:
    - cadastre as variáveis de `.env.example`, incluindo `SITE_URL=https://dora-livre.vercel.app`;
    - **não** defina `DORALIVRE_MODO_TESTE`.
-5. Faça uma compra com usuários de teste do Mercado Pago antes de liberar ao público.
+6. Faça uma compra com usuários de teste do Mercado Pago antes de liberar ao público.

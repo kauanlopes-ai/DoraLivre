@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const COMPARA: { recurso: string; basico: boolean; premium: boolean }[] = [
   { recurso: "Catálogo e player dentro do site", basico: true, premium: true },
-  { recurso: "Favoritos salvos na conta, em qualquer dispositivo", basico: true, premium: true },
+  { recurso: "Favoritos salvos na sua conta Google, em qualquer dispositivo", basico: true, premium: true },
   { recurso: "Marcar episódios como assistidos", basico: true, premium: true },
   { recurso: "Continuar assistindo de onde parou", basico: false, premium: true },
   { recurso: "Progresso por série", basico: false, premium: true },
@@ -63,7 +63,7 @@ export default async function PlanosPage({ searchParams }: { searchParams: Promi
           <ul className="plan-list">
             <li>Favoritos salvos na conta</li>
             <li>Episódios marcados como assistidos</li>
-            <li>Disponível em qualquer dispositivo com o seu e-mail</li>
+            <li>Disponível em qualquer dispositivo com a sua conta Google</li>
           </ul>
           {plano === "nenhum" ? (
             vendas && (
@@ -149,8 +149,9 @@ export default async function PlanosPage({ searchParams }: { searchParams: Promi
           <dd>Não. O catálogo e o player do YouTube continuam públicos. A compra libera recursos da sua conta.</dd>
           <dt>Como recebo o acesso?</dt>
           <dd>
-            Depois do pagamento, entre em <Link href="/entrar">/entrar</Link> com o e-mail da compra. O plano é liberado na
-            conta que fez o pedido, assim que o provedor confirmar o pagamento.
+            Você entra com Google antes de pagar, e o pedido fica ligado à sua conta. Depois do pagamento, acesse{" "}
+            <Link href="/entrar">/entrar</Link> com a mesma conta Google: o plano é liberado assim que o provedor confirmar
+            o pagamento.
           </dd>
           <dt>Já tenho o Básico. Quanto custa o Premium?</dt>
           <dd>O upgrade custa {brl(PRODUTOS.upgrade.centavos)}, pagamento único, e mantém seus favoritos e episódios marcados.</dd>

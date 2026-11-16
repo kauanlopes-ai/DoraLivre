@@ -27,24 +27,15 @@ const check = (name, ok, extra = "") => {
 const RUN = Date.now().toString(36);
 const emails = { A: `ana.${RUN}@teste.dev`, B: `bruno.${RUN}@teste.dev`, C: `carla.${RUN}@teste.dev`, D: `davi.${RUN}@teste.dev`, E: `eva.${RUN}@teste.dev` };
 
-async function codeFor(email) {
-  for (let i = 0; i < 20; i++) {
-    const [r] = await sql`select corpo from sim_emails where para = ${email} order by id desc limit 1`;
-    if (r) return r.corpo.match(/\b(\d{6})\b/)[1];
-    await new Promise((r) => setTimeout(r, 250));
-  }
-  throw new Error("código não chegou para " + email);
-}
-
+/** Login pelo botão "Entrar com Google" (no modo de teste, a tela do Google é simulada). */
 async function login(page, email, startUrl) {
   if (startUrl) await page.goto(BASE + startUrl);
   await page.waitForURL(/\/entrar/);
-  await page.getByLabel("Seu e-mail").fill(email);
-  await sql`delete from sim_emails where para = ${email}`;
-  await page.getByRole("button", { name: "Receber código" }).click();
-  await page.getByLabel("Código de 6 dígitos").waitFor();
-  await page.getByLabel("Código de 6 dígitos").fill(await codeFor(email));
-  await page.getByRole("button", { name: "Entrar", exact: true }).click();
+  await page.getByRole("link", { name: "Entrar com Google" }).click();
+  await page.waitForURL(/\/teste\/google\?/);
+  await page.getByLabel("E-mail da conta Google de teste").fill(email);
+  await page.getByRole("button", { name: "Continuar" }).click();
+  await page.waitForURL((u) => !/\/teste\/google|\/api\/auth/.test(u.pathname));
   await page.waitForLoadState("networkidle");
 }
 
@@ -97,6 +88,27 @@ async function panelAction(page, paymentId, acao) {
 }
 
 async function parte1(browser) {
+  // ===================== 0. Login com Google =====================
+  const g = await (await browser.newContext()).newPage();
+  await g.goto(BASE + "/entrar?volta=/conta", { waitUntil: "networkidle" });
+  const gHref = await g.getByRole("link", { name: "Entrar com Google" }).getAttribute("href");
+  check("Entrar: botão Entrar com Google (sem formulário de código)", gHref.startsWith("/api/auth/google") && (await g.locator('input[type="email"]').count()) === 0);
+  await g.getByRole("link", { name: "Entrar com Google" }).click();
+  await g.waitForURL(/\/teste\/google\?/);
+  const gq = new URL(g.url()).searchParams;
+  check("Google: authorize com provider=google, PKCE s256 e retorno /api/auth/callback", gq.get("provider") === "google" && gq.get("code_challenge_method") === "s256" && /^[A-Za-z0-9_-]{43}$/.test(gq.get("code_challenge")) && gq.get("redirect_to").endsWith("/api/auth/callback"));
+  await g.getByRole("button", { name: "Cancelar" }).click();
+  await g.waitForURL(/\/entrar\?erro=cancelado/);
+  check("Google: cancelar volta ao /entrar com aviso, sem sessão", (await g.locator(".nudge-error").innerText()).includes("cancelado") && (await planOf(g)) === undefined);
+  // Código válido usado em outro navegador (sem o cookie PKCE) não autentica
+  const g2 = await (await browser.newContext()).newPage();
+  await g2.goto(BASE + "/api/auth/callback?code=qualquer");
+  check("Google: callback sem o verificador PKCE do navegador é recusado", /\/entrar\?erro=sessao/.test(g2.url()) && (await planOf(g2)) === undefined);
+  // Volta só para caminhos internos
+  const r0 = await fetch(BASE + "/api/auth/google?volta=//evil.example", { redirect: "manual" });
+  const pk = Buffer.from(decodeURIComponent((r0.headers.get("set-cookie") || "").match(/dl_pkce=([^;]+)/)[1]), "base64url").toString();
+  check("Google: parâmetro volta externo é descartado", JSON.parse(pk).volta === "/conta", pk);
+
   // ===================== 1. Compra do Básico (Ana) =====================
   const ctxA = await browser.newContext({ viewport: { width: 1366, height: 900 }, locale: "pt-BR" });
   const a = await ctxA.newPage();

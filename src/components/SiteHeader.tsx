@@ -24,8 +24,8 @@ export default function SiteHeader({ search }: Props) {
     <>
       {acc?.info?.modoTeste && (
         <div className="test-banner" role="status">
-          Ambiente de teste: login e pagamentos simulados, nenhum valor é cobrado.{" "}
-          <Link href="/teste/caixa-de-entrada">Caixa de entrada de teste</Link>
+          Ambiente de teste: login com Google e pagamentos simulados, nenhum valor é cobrado.{" "}
+          <Link href="/teste/pagamentos">Pagamentos de teste</Link>
         </div>
       )}
       <header className={`topbar${acc?.info?.modoTeste ? " has-banner" : ""}`}>
