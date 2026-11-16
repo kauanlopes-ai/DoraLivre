@@ -18,6 +18,7 @@ export type Series = {
   // Metadados opcionais — só aparecem quando preenchidos em data/series-meta.json
   sinopse?: string;
   generos?: string[];
+  elenco?: string[];
   ano?: number;
   nota?: number;
   poster?: string;

@@ -1,4 +1,19 @@
 {
-  "_leia-me": "Metadados opcionais por série (chave = slug). Preencha só com dados confiáveis/autorizados: sinopse, generos (lista), ano, nota, poster (URL ou caminho em /public). Campos vazios não aparecem no site. 'destaque': true escolhe a série do topo da home.",
-  "quando-eu-encontrar-a-lua": { "destaque": true }
+  "_leia-me": "Metadados opcionais por série (chave = slug). Preencha só com dados confiáveis/autorizados: sinopse, generos (lista), elenco (lista), ano, nota, poster (URL ou caminho em /public). Campos vazios não aparecem no site. 'destaque': true escolhe a série do topo da home. O elenco foi extraído dos títulos oficiais dos vídeos nos canais (oEmbed do YouTube, 16/11/2026).",
+  "o-justiceiro-das-sombras": { "elenco": ["Luo Yunxi"] },
+  "como-voce-pode": { "elenco": ["Wang Churan", "Cheng Lei"] },
+  "quando-eu-encontrar-a-lua": { "destaque": true, "elenco": ["Lu Yuxiao", "Lin Yi"] },
+  "contra-a-corrente": { "elenco": ["Liu Xueyi", "Tan Songyun"] },
+  "amor-fora-de-controle": { "elenco": ["Wang Churan", "Zhang Linghe"] },
+  "caminho-ao-esplendor": { "elenco": ["Ding Yuxi", "Deng Enxi"] },
+  "primeiro-jasmim": { "elenco": ["Bai Lu", "Cheng Lei"] },
+  "vivendo-sem-lacos": { "elenco": ["Tan Songyun", "Hou Minghao"] },
+  "florescer-na-escuridao": { "elenco": ["Sun Zhenni", "Li Hongyi"] },
+  "a-primavera-da-lamina": { "elenco": ["Xu Kai", "Zhou Ye"] },
+  "o-melhor-de-tudo": { "elenco": ["Zhang Linghe", "Xu Ruohan"] },
+  "a-oliveira-branca": { "elenco": ["Chen Zheyuan", "Liang Jie"] },
+  "em-busca-do-jade": { "elenco": ["Zhang Linghe", "Tian Xiwei"] },
+  "genius-girlfriend": { "elenco": ["Tian Xiwei", "Hu Yitian"] },
+  "o-destino-te-chama": { "elenco": ["Ren Jialun", "Wang Herun"] },
+  "uma-risada-entre-as-musicas": { "elenco": ["Li Qin", "Chen Zheyuan"] }
 }
