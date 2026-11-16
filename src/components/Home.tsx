@@ -6,9 +6,11 @@ import { thumb } from "@/lib/youtube";
 import PosterCard, { countLabel } from "./PosterCard";
 import PlayerModal from "./PlayerModal";
 import { IconList, IconNext, IconPlay, IconPrev, IconSearch, Logo } from "./Icons";
+import SiteHeader from "./SiteHeader";
+import PlansTeaser from "./PlansTeaser";
 
 type Open = { slug: string; youtubeId: string } | null;
-const PROGRESS_KEY = "lua:progresso";
+const PROGRESS_KEY = "lua:progresso"; // chave mantida para preservar o progresso já salvo
 
 const norm = (s: string) =>
   s
@@ -77,7 +79,7 @@ export default function Home({ catalog }: { catalog: Catalog }) {
       const saved = s.episodios.find((e) => e.youtubeId === readProgress()[s.slug]);
       const target = ep ?? saved ?? s.episodios[0];
       setOpen({ slug: s.slug, youtubeId: target.youtubeId });
-      window.history.pushState({ lua: true }, "", urlFor(s.slug, target));
+      window.history.pushState({ dl: true }, "", urlFor(s.slug, target));
     },
     [],
   );
@@ -93,7 +95,7 @@ export default function Home({ catalog }: { catalog: Catalog }) {
 
   const close = useCallback(() => {
     setOpen(null);
-    if (window.history.state?.lua) window.history.back();
+    if (window.history.state?.dl) window.history.back();
     else window.history.replaceState(null, "", window.location.pathname);
   }, []);
 
@@ -169,28 +171,7 @@ export default function Home({ catalog }: { catalog: Catalog }) {
 
   return (
     <>
-      <header className="topbar">
-        <div className="topbar-inner">
-          <a href="#inicio" className="brand">
-            <Logo />
-          </a>
-          <nav className="topnav" aria-label="Principal">
-            <a href="#inicio">Início</a>
-            <a href="#maratona">Maratona</a>
-            <a href="#catalogo">Catálogo</a>
-          </nav>
-          <label className="search">
-            <IconSearch size={16} />
-            <input
-              type="search"
-              placeholder="Buscar dorama…"
-              value={query}
-              onChange={(e) => onSearch(e.target.value)}
-              aria-label="Buscar dorama por título"
-            />
-          </label>
-        </div>
-      </header>
+      <SiteHeader search={{ value: query, onChange: onSearch }} />
 
       <main id="inicio">
         {!searching && (
@@ -262,6 +243,8 @@ export default function Home({ catalog }: { catalog: Catalog }) {
               <Row title="Para experimentar" subtitle="Primeiros episódios para conhecer a história" items={shortOnes} onOpen={openSeries} />
             </>
           )}
+
+          {!searching && <PlansTeaser />}
 
           <section className="catalog" id="catalogo" ref={catalogRef}>
             <div className="catalog-head">

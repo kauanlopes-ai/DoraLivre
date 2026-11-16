@@ -49,7 +49,7 @@ export const IconList = ({ size }: P) => (
 );
 
 export const Logo = () => (
-  <span className="logo" aria-label="Lua Doramas">
+  <span className="logo">
     <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden>
       <defs>
         <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
@@ -61,7 +61,7 @@ export const Logo = () => (
       <circle cx="24.5" cy="7.5" r="1.4" fill="#ffe3a3" />
     </svg>
     <span className="logo-word">
-      lua<span>doramas</span>
+      dora<span>livre</span>
     </span>
   </span>
 );

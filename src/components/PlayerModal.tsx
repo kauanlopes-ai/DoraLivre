@@ -4,6 +4,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { Episode, Series } from "@/lib/types";
 import { loadYouTubeApi, thumb, YT_ERROR_TEXT, type YTPlayer } from "@/lib/youtube";
 import { IconClose, IconExpand, IconNext, IconPrev, IconPlay } from "./Icons";
+import { useAccount } from "./AccountProvider";
+import SeriesActions, { WatchedToggle } from "./SeriesActions";
 
 type Props = {
   series: Series;
@@ -34,6 +36,7 @@ export default function PlayerModal({ series, episode, failed, onFail, onOk, onS
   const [autoNext, setAutoNext] = useState(true);
   const [isFs, setIsFs] = useState(false);
 
+  const account = useAccount();
   const eps = series.episodios;
   const idx = eps.findIndex((e) => e.youtubeId === episode.youtubeId);
   const prev = idx > 0 ? eps[idx - 1] : null;
@@ -126,6 +129,12 @@ export default function PlayerModal({ series, episode, failed, onFail, onOk, onS
     setError(null);
     if (playerRef.current && readyRef.current) playerRef.current.loadVideoById(episode.youtubeId);
   }, [episode.youtubeId]);
+
+  // Premium: registra o episódio aberto (Continuar assistindo e Histórico) — validado no servidor
+  const registrar = account?.registrarAbertura;
+  useEffect(() => {
+    registrar?.(episode.youtubeId);
+  }, [episode.youtubeId, registrar]);
 
   // Mantém o episódio atual visível na lista
   useEffect(() => {
@@ -245,6 +254,7 @@ export default function PlayerModal({ series, episode, failed, onFail, onOk, onS
                 </span>
                 <span>Dublado · {series.canais.join(", ")}</span>
               </p>
+              <SeriesActions series={series} />
               {series.generos && (
                 <div className="chips">
                   {series.generos.map((g) => (
@@ -288,6 +298,7 @@ export default function PlayerModal({ series, episode, failed, onFail, onOk, onS
                         <span className="episode-sub">{bad ? "Indisponível no momento" : e.canal}</span>
                       </span>
                     </button>
+                    <WatchedToggle episode={e} label={epLabel(e)} />
                   </li>
                 );
               })}

@@ -11,7 +11,7 @@ type RawSeries = {
   publicado: boolean;
   episodios: RawEpisode[];
 };
-type Meta = Partial<Pick<Series, "sinopse" | "generos" | "ano" | "nota" | "poster" | "destaque">>;
+type Meta = Partial<Pick<Series, "sinopse" | "generos" | "elenco" | "ano" | "nota" | "poster" | "destaque">>;
 
 const meta = metaRaw as unknown as Record<string, Meta>;
 
@@ -22,6 +22,10 @@ function cleanMeta(m: Meta | undefined): Meta {
   if (Array.isArray(m.generos)) {
     const g = m.generos.filter((x) => typeof x === "string" && x.trim());
     if (g.length) out.generos = g;
+  }
+  if (Array.isArray(m.elenco)) {
+    const e = m.elenco.filter((x) => typeof x === "string" && x.trim());
+    if (e.length) out.elenco = e;
   }
   if (typeof m.ano === "number") out.ano = m.ano;
   if (typeof m.nota === "number") out.nota = m.nota;
