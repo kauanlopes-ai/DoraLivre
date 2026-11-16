@@ -4,9 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "catalogo:importar": "node scripts/importar-catalogo.mjs",
+    "catalogo:verificar": "node scripts/verificar-youtube.mjs",
+    "predev": "node scripts/importar-catalogo.mjs",
+    "prebuild": "node scripts/importar-catalogo.mjs",
+    "test:e2e": "node tests/e2e.cjs"
   },
   "dependencies": {
     "react": "19.1.0",

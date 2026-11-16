@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lua Doramas
 
-## Getting Started
+Plataforma de doramas dublados em português (Next.js 15 + TypeScript). Os episódios tocam **dentro do site** pelo player oficial do YouTube (`https://www.youtube.com/embed/VIDEO_ID`), controlado pela API oficial do IFrame Player.
 
-First, run the development server:
+## Como rodar
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev          # desenvolvimento em http://localhost:3000
+npm run build && npm start   # produção
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`predev` e `prebuild` executam a importação do catálogo automaticamente.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Onde editar o catálogo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Arquivo | Para quê |
+|---|---|
+| `data/catalogo-doramas-pt-br.md` | **Fonte do catálogo.** Cada `### Série` vira uma série e cada linha da tabela vira um episódio (número, canal, ID do YouTube). |
+| `data/catalogo.json` | Gerado por `npm run catalogo:importar`. Não edite à mão. |
+| `data/series-meta.json` | Metadados opcionais por série (chave = slug): `sinopse`, `generos`, `ano`, `nota`, `poster`, `destaque`. Preencha só com dados confiáveis e autorizados. Campos vazios não aparecem, e o filtro de gênero só surge quando houver gêneros. |
 
-## Learn More
+Regras da importação (`scripts/importar-catalogo.mjs`):
+- Os números originais ficam preservados, lacunas incluídas (ex.: 1, 2, 7). Os cards mostram "Eps. 1–2, 7".
+- Uma linha com intervalo (`08–10` ou `08-10`) vira **uma** opção no player.
+- A atualização usa o ID do YouTube. Um ID que sai do `.md` fica `"publicado": false` no JSON e some do site. IDs duplicados são ignorados.
+- Para adicionar episódios, acrescente linhas no `.md` e rode `npm run catalogo:importar` (ou faça um novo build). Nenhum código de interface precisa mudar.
 
-To learn more about Next.js, take a look at the following resources:
+## Verificação dos vídeos
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run catalogo:verificar                 # oEmbed oficial: existe, permite incorporar, canal e título
+YT_API_KEY=... npm run catalogo:verificar  # + Data API v3: status.embeddable e contentDetails.regionRestriction (BR)
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+O resultado vai para `data/verificacao-youtube.json`, com alertas (por exemplo, número do episódio no título diferente do número no catálogo). Em ambientes atrás de proxy, use `NODE_USE_ENV_PROXY=1`.
 
-## Deploy on Vercel
+## Testes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm start &        # servidor em :3000
+npm run test:e2e   # Playwright: home, busca, player, sequência 1→5, fechar, celular
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Comportamento do player
+
+- "Assistir agora", os cards e a lista de episódios abrem uma janela sobre o catálogo. A URL vira `?assistir=slug&ep=01` e o usuário não sai do site. O botão Voltar do navegador fecha a janela.
+- Ao trocar de episódio, `loadVideoById` carrega o novo vídeo no mesmo iframe. O episódio atual fica destacado e, ao fim de cada um, o próximo começa sozinho (opção que pode ser desligada).
+- Com erro do player (códigos 2/5/100/101/150) ou se a API não carregar, aparece **"Episódio indisponível no momento"**, com botão para o próximo episódio disponível e "Tentar novamente". O episódio fica marcado na lista.
+- A tela cheia funciona pelo botão do próprio YouTube e pelo botão "Tela cheia" do site. Controles, marca e anúncios do YouTube continuam intactos.

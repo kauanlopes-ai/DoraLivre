@@ -1,0 +1,846 @@
+{
+  "atualizadoEm": "2026-11-16T01:52:47.524Z",
+  "fonte": "data/catalogo-doramas-pt-br.md",
+  "series": [
+    {
+      "slug": "o-justiceiro-das-sombras",
+      "titulo": "O Justiceiro das Sombras",
+      "tituloOriginal": "Shadow Punisher",
+      "ordem": 1,
+      "publicado": true,
+      "episodios": [
+        {
+          "numero": "01",
+          "rotulo": "1",
+          "ordem": 1,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "Blg2dLkH2Yk",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "02",
+          "rotulo": "2",
+          "ordem": 2,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "qNc1CXqHTz4",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "03",
+          "rotulo": "3",
+          "ordem": 3,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "C8vyny2O8fc",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "04",
+          "rotulo": "4",
+          "ordem": 4,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "Od570Xy47hc",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        }
+      ]
+    },
+    {
+      "slug": "my-journey-to-you",
+      "titulo": "My Journey to You",
+      "tituloOriginal": null,
+      "ordem": 2,
+      "publicado": true,
+      "episodios": [
+        {
+          "numero": "01",
+          "rotulo": "1",
+          "ordem": 1,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "0DJCm1Eux4U",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "02",
+          "rotulo": "2",
+          "ordem": 2,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "rXlXu49BHQY",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "03",
+          "rotulo": "3",
+          "ordem": 3,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "S99Kh8BE3yk",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "04",
+          "rotulo": "4",
+          "ordem": 4,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "0qdC3fFbEls",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "05",
+          "rotulo": "5",
+          "ordem": 5,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "UYUKsQEK7bU",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        }
+      ]
+    },
+    {
+      "slug": "como-voce-pode",
+      "titulo": "Como Você Pôde!?",
+      "tituloOriginal": null,
+      "ordem": 3,
+      "publicado": true,
+      "episodios": [
+        {
+          "numero": "01",
+          "rotulo": "1",
+          "ordem": 1,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "r9gWe1RwPcw",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "02",
+          "rotulo": "2",
+          "ordem": 2,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "yhKtUt0pSOI",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "03",
+          "rotulo": "3",
+          "ordem": 3,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "yLrlvk7FABQ",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        }
+      ]
+    },
+    {
+      "slug": "quando-eu-encontrar-a-lua",
+      "titulo": "Quando Eu Encontrar a Lua",
+      "tituloOriginal": "When I Meet the Moon",
+      "ordem": 4,
+      "publicado": true,
+      "episodios": [
+        {
+          "numero": "01",
+          "rotulo": "1",
+          "ordem": 1,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "smvfWWTcRXU",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "02",
+          "rotulo": "2",
+          "ordem": 2,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "sHqCUz7CAEY",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "03",
+          "rotulo": "3",
+          "ordem": 3,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "x2HbyeMYvdk",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "04",
+          "rotulo": "4",
+          "ordem": 4,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "61HE9dxACEM",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "05",
+          "rotulo": "5",
+          "ordem": 5,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "XEan-lK_58E",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        }
+      ]
+    },
+    {
+      "slug": "contra-a-corrente",
+      "titulo": "Contra a Corrente",
+      "tituloOriginal": null,
+      "ordem": 5,
+      "publicado": true,
+      "episodios": [
+        {
+          "numero": "01",
+          "rotulo": "1",
+          "ordem": 1,
+          "intervalo": null,
+          "canal": "WeTV Portuguese",
+          "youtubeId": "z3VgMVn8awc",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "02",
+          "rotulo": "2",
+          "ordem": 2,
+          "intervalo": null,
+          "canal": "WeTV Portuguese",
+          "youtubeId": "nSv8tdMwXu4",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        }
+      ]
+    },
+    {
+      "slug": "amor-fora-de-controle",
+      "titulo": "Amor Fora de Controle",
+      "tituloOriginal": null,
+      "ordem": 6,
+      "publicado": true,
+      "episodios": [
+        {
+          "numero": "01",
+          "rotulo": "1",
+          "ordem": 1,
+          "intervalo": null,
+          "canal": "WeTV Portuguese",
+          "youtubeId": "lS36E1Z6OUU",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "02",
+          "rotulo": "2",
+          "ordem": 2,
+          "intervalo": null,
+          "canal": "WeTV Portuguese",
+          "youtubeId": "KYUMrciZMT8",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        }
+      ]
+    },
+    {
+      "slug": "caminho-ao-esplendor",
+      "titulo": "Caminho ao Esplendor",
+      "tituloOriginal": null,
+      "ordem": 7,
+      "publicado": true,
+      "episodios": [
+        {
+          "numero": "01",
+          "rotulo": "1",
+          "ordem": 1,
+          "intervalo": null,
+          "canal": "WeTV Portuguese",
+          "youtubeId": "y71Cu8HSlXo",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "02",
+          "rotulo": "2",
+          "ordem": 2,
+          "intervalo": null,
+          "canal": "WeTV Portuguese",
+          "youtubeId": "Xh8lCkSMsPY",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        }
+      ]
+    },
+    {
+      "slug": "primeiro-jasmim",
+      "titulo": "Primeiro Jasmim",
+      "tituloOriginal": null,
+      "ordem": 8,
+      "publicado": true,
+      "episodios": [
+        {
+          "numero": "01",
+          "rotulo": "1",
+          "ordem": 1,
+          "intervalo": null,
+          "canal": "WeTV Portuguese",
+          "youtubeId": "lvv3UPL9SdE",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        }
+      ]
+    },
+    {
+      "slug": "vivendo-sem-lacos",
+      "titulo": "Vivendo sem Laços",
+      "tituloOriginal": null,
+      "ordem": 9,
+      "publicado": true,
+      "episodios": [
+        {
+          "numero": "01",
+          "rotulo": "1",
+          "ordem": 1,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "VXP1GS6bf-Y",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "02",
+          "rotulo": "2",
+          "ordem": 2,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "SyDl_fOlWz4",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        }
+      ]
+    },
+    {
+      "slug": "fool-in-love",
+      "titulo": "Fool in Love",
+      "tituloOriginal": null,
+      "ordem": 10,
+      "publicado": true,
+      "episodios": [
+        {
+          "numero": "01",
+          "rotulo": "1",
+          "ordem": 1,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "jWphUH1SDb8",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        }
+      ]
+    },
+    {
+      "slug": "the-legend-of-rosy-clouds",
+      "titulo": "The Legend of Rosy Clouds",
+      "tituloOriginal": null,
+      "ordem": 11,
+      "publicado": true,
+      "episodios": [
+        {
+          "numero": "01",
+          "rotulo": "1",
+          "ordem": 1,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "ok5PtKMtqfI",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "02",
+          "rotulo": "2",
+          "ordem": 2,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "pmuoX4HpsD8",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "03",
+          "rotulo": "3",
+          "ordem": 3,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "FYcxoDxzgX8",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "04",
+          "rotulo": "4",
+          "ordem": 4,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "ulw8w4OOnp4",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "05",
+          "rotulo": "5",
+          "ordem": 5,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "w2wfR01aUF8",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        }
+      ]
+    },
+    {
+      "slug": "florescer-na-escuridao",
+      "titulo": "Florescer na Escuridão",
+      "tituloOriginal": null,
+      "ordem": 12,
+      "publicado": true,
+      "episodios": [
+        {
+          "numero": "01",
+          "rotulo": "1",
+          "ordem": 1,
+          "intervalo": null,
+          "canal": "YOUKU Portuguese",
+          "youtubeId": "uzcNNc7cWok",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        }
+      ]
+    },
+    {
+      "slug": "a-primavera-da-lamina",
+      "titulo": "A Primavera da Lâmina",
+      "tituloOriginal": null,
+      "ordem": 13,
+      "publicado": true,
+      "episodios": [
+        {
+          "numero": "01",
+          "rotulo": "1",
+          "ordem": 1,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "k_lWR4UTk_U",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "02",
+          "rotulo": "2",
+          "ordem": 2,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "umiR6gWOBms",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        }
+      ]
+    },
+    {
+      "slug": "o-melhor-de-tudo",
+      "titulo": "O Melhor de Tudo",
+      "tituloOriginal": null,
+      "ordem": 14,
+      "publicado": true,
+      "episodios": [
+        {
+          "numero": "01",
+          "rotulo": "1",
+          "ordem": 1,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "-czGFY_yJBg",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "02",
+          "rotulo": "2",
+          "ordem": 2,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "aTdyS_IPZMQ",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "03",
+          "rotulo": "3",
+          "ordem": 3,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "NZmsMJ8G5jI",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "04",
+          "rotulo": "4",
+          "ordem": 4,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "Bk8j65P9DNs",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "05",
+          "rotulo": "5",
+          "ordem": 5,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "LJYXcREma9o",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        }
+      ]
+    },
+    {
+      "slug": "a-oliveira-branca",
+      "titulo": "A Oliveira Branca",
+      "tituloOriginal": null,
+      "ordem": 15,
+      "publicado": true,
+      "episodios": [
+        {
+          "numero": "01",
+          "rotulo": "1",
+          "ordem": 1,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "1jF1XAacVFc",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "02",
+          "rotulo": "2",
+          "ordem": 2,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "pqC0fr1Qges",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "03",
+          "rotulo": "3",
+          "ordem": 3,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "_uYRYEYv9GE",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "04",
+          "rotulo": "4",
+          "ordem": 4,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "7gFpmwIfZgE",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "05",
+          "rotulo": "5",
+          "ordem": 5,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "VPtewbWdnbk",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        }
+      ]
+    },
+    {
+      "slug": "em-busca-do-jade",
+      "titulo": "Em Busca do Jade",
+      "tituloOriginal": null,
+      "ordem": 16,
+      "publicado": true,
+      "episodios": [
+        {
+          "numero": "01",
+          "rotulo": "1",
+          "ordem": 1,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "eulpGGsHc9o",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        }
+      ]
+    },
+    {
+      "slug": "a-chave-para-o-coracao-da-fenix",
+      "titulo": "A Chave para o Coração da Fênix",
+      "tituloOriginal": null,
+      "ordem": 17,
+      "publicado": true,
+      "episodios": [
+        {
+          "numero": "01",
+          "rotulo": "1",
+          "ordem": 1,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "dhRd1XlLNOg",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "02",
+          "rotulo": "2",
+          "ordem": 2,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "5R1_k9fk8Tc",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "03",
+          "rotulo": "3",
+          "ordem": 3,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "r51S-JDByW0",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "04",
+          "rotulo": "4",
+          "ordem": 4,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "OtePCuNZ4S8",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "05",
+          "rotulo": "5",
+          "ordem": 5,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "cf30taIAzVk",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        }
+      ]
+    },
+    {
+      "slug": "genius-girlfriend",
+      "titulo": "Genius Girlfriend",
+      "tituloOriginal": null,
+      "ordem": 18,
+      "publicado": true,
+      "episodios": [
+        {
+          "numero": "01",
+          "rotulo": "1",
+          "ordem": 1,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "QL_6wI6d8T0",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "02",
+          "rotulo": "2",
+          "ordem": 2,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "t9Y1bXs8Yr0",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "03",
+          "rotulo": "3",
+          "ordem": 3,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "vmAwD9lv8CI",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "04",
+          "rotulo": "4",
+          "ordem": 4,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "bnh07AY8ynQ",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "05",
+          "rotulo": "5",
+          "ordem": 5,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "OHnavYWb0no",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        }
+      ]
+    },
+    {
+      "slug": "o-destino-te-chama",
+      "titulo": "O Destino Te Chama",
+      "tituloOriginal": null,
+      "ordem": 19,
+      "publicado": true,
+      "episodios": [
+        {
+          "numero": "01",
+          "rotulo": "1",
+          "ordem": 1,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "2kqZCE30Wl8",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "02",
+          "rotulo": "2",
+          "ordem": 2,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "LR-eXs_XPMM",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "03",
+          "rotulo": "3",
+          "ordem": 3,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "ykoplpvXCaM",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "04",
+          "rotulo": "4",
+          "ordem": 4,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "ieO-CuTSaE0",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "05",
+          "rotulo": "5",
+          "ordem": 5,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "KjnGXwxbq1g",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        }
+      ]
+    },
+    {
+      "slug": "uma-risada-entre-as-musicas",
+      "titulo": "Uma Risada entre as Músicas",
+      "tituloOriginal": null,
+      "ordem": 20,
+      "publicado": true,
+      "episodios": [
+        {
+          "numero": "01",
+          "rotulo": "1",
+          "ordem": 1,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "U2HgzzolrnI",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "02",
+          "rotulo": "2",
+          "ordem": 2,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "OcTTA--5Fq0",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "03",
+          "rotulo": "3",
+          "ordem": 3,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "TPbmksVL5To",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "04",
+          "rotulo": "4",
+          "ordem": 4,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "e4N8qm9nXcg",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        },
+        {
+          "numero": "05",
+          "rotulo": "5",
+          "ordem": 5,
+          "intervalo": null,
+          "canal": "iQIYI Portuguese",
+          "youtubeId": "qaIFq5zNrjA",
+          "publicado": true,
+          "importadoEm": "2026-11-16T01:52:47.524Z"
+        }
+      ]
+    }
+  ]
+}

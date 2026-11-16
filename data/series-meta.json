@@ -1,0 +1,4 @@
+{
+  "_leia-me": "Metadados opcionais por série (chave = slug). Preencha só com dados confiáveis/autorizados: sinopse, generos (lista), ano, nota, poster (URL ou caminho em /public). Campos vazios não aparecem no site. 'destaque': true escolhe a série do topo da home.",
+  "quando-eu-encontrar-a-lua": { "destaque": true }
+}
